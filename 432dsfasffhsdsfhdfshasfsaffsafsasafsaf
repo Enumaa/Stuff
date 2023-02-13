@@ -1,0 +1,1048 @@
+local Tool = Instance.new("Tool")
+Tool.Name = "Astral Divinity"
+Tool.RequiresHandle = true
+local part = Instance.new("Part")
+part.CanCollide = false
+part.Anchored = false
+part.Name = "Handle"
+part.Transparency = 1
+part.Parent = Tool
+Tool.Parent = owner.Character
+
+local asdiyhsadhsoaifuysafiuo = Instance.new("Folder")
+asdiyhsadhsoaifuysafiuo.Name = "Immune"
+asdiyhsadhsoaifuysafiuo.Parent = owner.Character
+
+Tool.Activated:Connect(function()
+	local Player = owner
+	
+	for i = 1,6 do
+		
+		local chargeup = Instance.new("Sound")
+		chargeup.SoundId = "rbxassetid://6464007319"
+		chargeup.PlaybackSpeed = 1.5
+		chargeup.Parent = script.Parent
+		chargeup:Play()
+		
+		if i == 1 then
+			
+			local abc = Instance.new("Part")
+			abc.CanCollide = false
+			abc.Size = Vector3.new(1,1,1)
+			abc.Shape = Enum.PartType.Ball
+			abc.Material = Enum.Material.Neon
+			abc.BrickColor = BrickColor.new("Institutional white")
+			abc.Anchored = true
+			local trail = Instance.new("Trail")
+			trail.Transparency = NumberSequence.new(0)
+			trail.Parent = abc
+			local attach1 = Instance.new("Attachment")
+			attach1.Parent = abc
+			attach1.CFrame = abc.CFrame * CFrame.new(-0.5,0,0)
+			local attach2 = Instance.new("Attachment")
+			attach2.Parent = abc
+			attach2.CFrame = abc.CFrame * CFrame.new(0.5,0,0)
+			trail.Attachment0 = attach1
+			trail.Attachment1 = attach2
+			
+			NS([[local a = false
+script.Parent.Touched:Connect(function(Hit)
+	if Hit.Parent:FindFirstChild("Humanoid") and a == false and not Hit.Parent:FindFirstChild("Immune") then	
+		for i,v in pairs(script.Parent:GetChildren()) do			
+			if v:IsA("BodyPosition") then				
+				v:Destroy()
+			end		
+		end
+		
+		script.Parent.Anchored = true
+		
+		game.Debris:AddItem(script.Parent,5)
+		
+		a = true
+		
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(1), {Size = Vector3.new(4,4,4)}):Play()
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(1), {Transparency = 1}):Play()
+		
+		local chargeup = Instance.new("Sound")
+		chargeup.SoundId = "rbxassetid://5416548293"
+		chargeup.Parent = script.Parent
+		chargeup:Play()
+		
+		Hit.Parent.HumanoidRootPart:BreakJoints()
+		
+		for i,v in pairs(Hit.Parent:GetChildren()) do
+			
+			if v:IsA("Pants") or v:IsA("Shirt") then
+				v:Destroy()
+			end
+			
+			if v:IsA("Part") and v.Name ~= "HumanoidRootPart" then
+				
+				v.CanCollide = false
+				v.Anchored = false
+				
+				local bodyposition = Instance.new("BodyPosition")
+				bodyposition.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+				bodyposition.Position = v.Position + Vector3.new(0,15,0)
+				bodyposition.Parent = v
+				
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Size = Vector3.new(1,1,1)}):Play()
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Transparency = 1}):Play()
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Color = Color3.new(0, 0, 0)}):Play()
+				game.Debris:AddItem(v,2)
+				
+			end
+		end
+		
+		game.Debris:AddItem(script.Parent,1)
+		
+	end	
+end)]], abc)
+			
+			NS([[local Part = script.Parent
+local Trail = Part:WaitForChild("Trail")
+local Val = Instance.new("Color3Value")
+
+Val.Value = Color3.new(0,0,0)
+
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+
+local function SimpleTween(Object, Length, Style, Direction, Properties)
+	local Tween = TweenService:Create(
+		Object,
+		TweenInfo.new(Length, Enum.EasingStyle[Style].Value, Enum.EasingDirection[Direction].Value),
+		Properties
+	)
+
+	Tween:Play()
+	Tween.Completed:Wait()
+	Tween:Destroy()
+end
+while true do
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,0,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,1,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,1,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,1,1) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,0,1) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,0,1) })
+end
+
+RunService.Heartbeat:Connect(function()
+	Val.Value = Part.Color
+	Trail.Color = ColorSequence.new(Val.Value)
+end)]], abc)
+			
+			
+			abc.Parent = workspace
+			abc.CFrame = Player.Character.HumanoidRootPart.CFrame
+			
+			
+			NS([[
+			for i = 1,9 do
+		local pos
+		if i == 1 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-4,3,3)
+		elseif i == 2 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-2,5,5)
+		elseif i == 3 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-8,10,7)
+		elseif i == 4 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-4,12,9)
+		elseif i == 5 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-12,13,11)
+		elseif i == 6 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-8,16,12)
+		elseif i == 7 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-6,17,14)
+		elseif i == 8 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-2,19,17)
+		elseif i == 9 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-1,22,19)
+		end
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.35), {CFrame = pos}):Play()
+		task.wait(0.25)
+	end
+	script.Parent.Anchored = false
+		]], abc)
+			for i,v in pairs(workspace:GetChildren()) do
+				if v:IsA("Model") and v:FindFirstChild("Humanoid") then
+					local MagnitudeInStuds = (v.HumanoidRootPart.Position - Player.Character.HumanoidRootPart.Position).Magnitude
+					local abasdsaf = false
+					if MagnitudeInStuds <= 100 and v.Name ~= owner.Name and abasdsaf == false then
+						abasdsaf = true
+
+						local thing = Instance.new("StringValue")
+						thing.Name = "EnemyName"
+						thing.Value = v.Name
+						thing.Parent = abc
+
+						local ab = Instance.new("BodyPosition")
+						ab.Name = "jomog"
+						ab.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+						ab.Position = v.HumanoidRootPart.Position
+						ab.Parent = abc
+						NS([[
+local val = script.Parent.Parent.EnemyName
+while true do
+script.Parent.Position = workspace[val.Value].HumanoidRootPart.Position
+task.wait(0.001)
+end
+]], ab)
+						task.wait(0.1)
+					end
+				end
+			end
+		elseif i == 2 then -------------------------------------------------------------------------------------
+			local abc = Instance.new("Part")
+			abc.CanCollide = false
+			abc.Size = Vector3.new(1,1,1)
+			abc.Shape = Enum.PartType.Ball
+			abc.Material = Enum.Material.Neon
+			abc.BrickColor = BrickColor.new("Institutional white")
+			abc.Anchored = true
+			local trail = Instance.new("Trail")
+			trail.Transparency = NumberSequence.new(0)
+			trail.Parent = abc
+			local attach1 = Instance.new("Attachment")
+			attach1.Parent = abc
+			attach1.CFrame = abc.CFrame * CFrame.new(-0.5,0,0)
+			local attach2 = Instance.new("Attachment")
+			attach2.Parent = abc
+			attach2.CFrame = abc.CFrame * CFrame.new(0.5,0,0)
+			trail.Attachment0 = attach1
+			trail.Attachment1 = attach2
+
+			NS([[local a = false
+script.Parent.Touched:Connect(function(Hit)
+	if Hit.Parent:FindFirstChild("Humanoid") and a == false and not Hit.Parent:FindFirstChild("Immune") then	
+		for i,v in pairs(script.Parent:GetChildren()) do			
+			if v:IsA("BodyPosition") then				
+				v:Destroy()
+			end		
+		end
+		
+		script.Parent.Anchored = true
+		
+		game.Debris:AddItem(script.Parent,5)
+		
+		a = true
+		
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(1), {Size = Vector3.new(4,4,4)}):Play()
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(1), {Transparency = 1}):Play()
+		
+		local chargeup = Instance.new("Sound")
+		chargeup.SoundId = "rbxassetid://5416548293"
+		chargeup.Parent = script.Parent
+		chargeup:Play()
+		
+		Hit.Parent.HumanoidRootPart:BreakJoints()
+		
+		for i,v in pairs(Hit.Parent:GetChildren()) do
+			
+			if v:IsA("Pants") or v:IsA("Shirt") then
+				v:Destroy()
+			end
+			
+			if v:IsA("Part") and v.Name ~= "HumanoidRootPart" then
+				
+				v.CanCollide = false
+				v.Anchored = false
+				
+				local bodyposition = Instance.new("BodyPosition")
+				bodyposition.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+				bodyposition.Position = v.Position + Vector3.new(0,15,0)
+				bodyposition.Parent = v
+				
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Size = Vector3.new(1,1,1)}):Play()
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Transparency = 1}):Play()
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Color = Color3.new(0, 0, 0)}):Play()
+				game.Debris:AddItem(v,2)
+				
+			end
+		end
+		
+		game.Debris:AddItem(script.Parent,1)
+		
+	end	
+end)]], abc)
+
+			NS([[local Part = script.Parent
+local Trail = Part:WaitForChild("Trail")
+local Val = Instance.new("Color3Value")
+
+Val.Value = Color3.new(0,0,0)
+
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+
+local function SimpleTween(Object, Length, Style, Direction, Properties)
+	local Tween = TweenService:Create(
+		Object,
+		TweenInfo.new(Length, Enum.EasingStyle[Style].Value, Enum.EasingDirection[Direction].Value),
+		Properties
+	)
+
+	Tween:Play()
+	Tween.Completed:Wait()
+	Tween:Destroy()
+end
+while true do
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,0,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,1,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,1,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,1,1) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,0,1) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,0,1) })
+end
+
+RunService.Heartbeat:Connect(function()
+	Val.Value = Part.Color
+	Trail.Color = ColorSequence.new(Val.Value)
+end)]], abc)
+
+
+			abc.Parent = workspace
+			abc.CFrame = Player.Character.HumanoidRootPart.CFrame
+
+
+			NS([[
+			for i = 1,9 do
+		local pos
+		if i == 1 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(4,3,3)
+		elseif i == 2 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(2,5,5)
+		elseif i == 3 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(8,10,7)
+		elseif i == 4 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(4,12,9)
+		elseif i == 5 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(12,13,11)
+		elseif i == 6 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(8,16,12)
+		elseif i == 7 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(6,17,14)
+		elseif i == 8 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(2,19,17)
+		elseif i == 9 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(1,22,19)
+		end
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.35), {CFrame = pos}):Play()
+		task.wait(0.25)
+	end
+	script.Parent.Anchored = false
+		]], abc)
+			for i,v in pairs(workspace:GetChildren()) do
+				if v:IsA("Model") and v:FindFirstChild("Humanoid") then
+					local MagnitudeInStuds = (v.HumanoidRootPart.Position - Player.Character.HumanoidRootPart.Position).Magnitude
+					local abasdsaf = false
+					if MagnitudeInStuds <= 100 and v.Name ~= owner.Name and abasdsaf == false then
+						abasdsaf = true
+
+						local thing = Instance.new("StringValue")
+						thing.Name = "EnemyName"
+						thing.Value = v.Name
+						thing.Parent = abc
+
+						local ab = Instance.new("BodyPosition")
+						ab.Name = "jomog"
+						ab.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+						ab.Position = v.HumanoidRootPart.Position
+						ab.Parent = abc
+						NS([[
+local val = script.Parent.Parent.EnemyName
+while true do
+script.Parent.Position = workspace[val.Value].HumanoidRootPart.Position
+task.wait(0.001)
+end
+]], ab)
+						task.wait(0.1)
+					end
+				end
+			end
+
+	
+		elseif i == 3 then-----------------------------------------------------------------------
+			local abc = Instance.new("Part")
+			abc.CanCollide = false
+			abc.Size = Vector3.new(1,1,1)
+			abc.Shape = Enum.PartType.Ball
+			abc.Material = Enum.Material.Neon
+			abc.BrickColor = BrickColor.new("Institutional white")
+			abc.Anchored = true
+			local trail = Instance.new("Trail")
+			trail.Transparency = NumberSequence.new(0)
+			trail.Parent = abc
+			local attach1 = Instance.new("Attachment")
+			attach1.Parent = abc
+			attach1.CFrame = abc.CFrame * CFrame.new(-0.5,0,0)
+			local attach2 = Instance.new("Attachment")
+			attach2.Parent = abc
+			attach2.CFrame = abc.CFrame * CFrame.new(0.5,0,0)
+			trail.Attachment0 = attach1
+			trail.Attachment1 = attach2
+
+			NS([[local a = false
+script.Parent.Touched:Connect(function(Hit)
+	if Hit.Parent:FindFirstChild("Humanoid") and a == false and not Hit.Parent:FindFirstChild("Immune") then	
+		for i,v in pairs(script.Parent:GetChildren()) do			
+			if v:IsA("BodyPosition") then				
+				v:Destroy()
+			end		
+		end
+		
+		script.Parent.Anchored = true
+		
+		game.Debris:AddItem(script.Parent,5)
+		
+		a = true
+		
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(1), {Size = Vector3.new(4,4,4)}):Play()
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(1), {Transparency = 1}):Play()
+		
+		local chargeup = Instance.new("Sound")
+		chargeup.SoundId = "rbxassetid://5416548293"
+		chargeup.Parent = script.Parent
+		chargeup:Play()
+		
+		Hit.Parent.HumanoidRootPart:BreakJoints()
+		
+		for i,v in pairs(Hit.Parent:GetChildren()) do
+			
+			if v:IsA("Pants") or v:IsA("Shirt") then
+				v:Destroy()
+			end
+			
+			if v:IsA("Part") and v.Name ~= "HumanoidRootPart" then
+				
+				v.CanCollide = false
+				v.Anchored = false
+				
+				local bodyposition = Instance.new("BodyPosition")
+				bodyposition.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+				bodyposition.Position = v.Position + Vector3.new(0,15,0)
+				bodyposition.Parent = v
+				
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Size = Vector3.new(1,1,1)}):Play()
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Transparency = 1}):Play()
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Color = Color3.new(0, 0, 0)}):Play()
+				game.Debris:AddItem(v,2)
+				
+			end
+		end
+		
+		game.Debris:AddItem(script.Parent,1)
+		
+	end	
+end)]], abc)
+
+			NS([[local Part = script.Parent
+local Trail = Part:WaitForChild("Trail")
+local Val = Instance.new("Color3Value")
+
+Val.Value = Color3.new(0,0,0)
+
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+
+local function SimpleTween(Object, Length, Style, Direction, Properties)
+	local Tween = TweenService:Create(
+		Object,
+		TweenInfo.new(Length, Enum.EasingStyle[Style].Value, Enum.EasingDirection[Direction].Value),
+		Properties
+	)
+
+	Tween:Play()
+	Tween.Completed:Wait()
+	Tween:Destroy()
+end
+while true do
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,0,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,1,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,1,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,1,1) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,0,1) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,0,1) })
+end
+
+RunService.Heartbeat:Connect(function()
+	Val.Value = Part.Color
+	Trail.Color = ColorSequence.new(Val.Value)
+end)]], abc)
+
+
+			abc.Parent = workspace
+			abc.CFrame = Player.Character.HumanoidRootPart.CFrame
+
+
+			NS([[
+			for i = 1,9 do
+		local pos
+		if i == 1 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(4,3,-3)
+		elseif i == 2 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(2,5,-5)
+		elseif i == 3 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(8,10,-7)
+		elseif i == 4 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(4,12,-9)
+		elseif i == 5 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(12,13,-11)
+		elseif i == 6 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(8,16,-12)
+		elseif i == 7 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(6,17,-14)
+		elseif i == 8 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(2,19,-17)
+		elseif i == 9 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(1,22,-19)
+		end
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.35), {CFrame = pos}):Play()
+		task.wait(0.25)
+	end
+	script.Parent.Anchored = false
+		]], abc)
+			for i,v in pairs(workspace:GetChildren()) do
+				if v:IsA("Model") and v:FindFirstChild("Humanoid") then
+					local MagnitudeInStuds = (v.HumanoidRootPart.Position - Player.Character.HumanoidRootPart.Position).Magnitude
+					local abasdsaf = false
+					if MagnitudeInStuds <= 100 and v.Name ~= owner.Name and abasdsaf == false then
+						abasdsaf = true
+
+						local thing = Instance.new("StringValue")
+						thing.Name = "EnemyName"
+						thing.Value = v.Name
+						thing.Parent = abc
+
+						local ab = Instance.new("BodyPosition")
+						ab.Name = "jomog"
+						ab.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+						ab.Position = v.HumanoidRootPart.Position
+						ab.Parent = abc
+						NS([[
+local val = script.Parent.Parent.EnemyName
+while true do
+script.Parent.Position = workspace[val.Value].HumanoidRootPart.Position
+task.wait(0.001)
+end
+]], ab)
+						task.wait(0.1)
+					end
+				end
+			end
+		elseif i == 4 then---------------------------------------------
+			local abc = Instance.new("Part")
+			abc.CanCollide = false
+			abc.Size = Vector3.new(1,1,1)
+			abc.Shape = Enum.PartType.Ball
+			abc.Material = Enum.Material.Neon
+			abc.BrickColor = BrickColor.new("Institutional white")
+			abc.Anchored = true
+			local trail = Instance.new("Trail")
+			trail.Transparency = NumberSequence.new(0)
+			trail.Parent = abc
+			local attach1 = Instance.new("Attachment")
+			attach1.Parent = abc
+			attach1.CFrame = abc.CFrame * CFrame.new(-0.5,0,0)
+			local attach2 = Instance.new("Attachment")
+			attach2.Parent = abc
+			attach2.CFrame = abc.CFrame * CFrame.new(0.5,0,0)
+			trail.Attachment0 = attach1
+			trail.Attachment1 = attach2
+
+			NS([[local a = false
+script.Parent.Touched:Connect(function(Hit)
+	if Hit.Parent:FindFirstChild("Humanoid") and a == false and not Hit.Parent:FindFirstChild("Immune") then	
+		for i,v in pairs(script.Parent:GetChildren()) do			
+			if v:IsA("BodyPosition") then				
+				v:Destroy()
+			end		
+		end
+		
+		script.Parent.Anchored = true
+		
+		game.Debris:AddItem(script.Parent,5)
+		
+		a = true
+		
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(1), {Size = Vector3.new(4,4,4)}):Play()
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(1), {Transparency = 1}):Play()
+		
+		local chargeup = Instance.new("Sound")
+		chargeup.SoundId = "rbxassetid://5416548293"
+		chargeup.Parent = script.Parent
+		chargeup:Play()
+		
+		Hit.Parent.HumanoidRootPart:BreakJoints()
+		
+		for i,v in pairs(Hit.Parent:GetChildren()) do
+			
+			if v:IsA("Pants") or v:IsA("Shirt") then
+				v:Destroy()
+			end
+			
+			if v:IsA("Part") and v.Name ~= "HumanoidRootPart" then
+				
+				v.CanCollide = false
+				v.Anchored = false
+				
+				local bodyposition = Instance.new("BodyPosition")
+				bodyposition.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+				bodyposition.Position = v.Position + Vector3.new(0,15,0)
+				bodyposition.Parent = v
+				
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Size = Vector3.new(1,1,1)}):Play()
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Transparency = 1}):Play()
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Color = Color3.new(0, 0, 0)}):Play()
+				game.Debris:AddItem(v,2)
+				
+			end
+		end
+		
+		game.Debris:AddItem(script.Parent,1)
+		
+	end	
+end)]], abc)
+
+			NS([[local Part = script.Parent
+local Trail = Part:WaitForChild("Trail")
+local Val = Instance.new("Color3Value")
+
+Val.Value = Color3.new(0,0,0)
+
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+
+local function SimpleTween(Object, Length, Style, Direction, Properties)
+	local Tween = TweenService:Create(
+		Object,
+		TweenInfo.new(Length, Enum.EasingStyle[Style].Value, Enum.EasingDirection[Direction].Value),
+		Properties
+	)
+
+	Tween:Play()
+	Tween.Completed:Wait()
+	Tween:Destroy()
+end
+while true do
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,0,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,1,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,1,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,1,1) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,0,1) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,0,1) })
+end
+
+RunService.Heartbeat:Connect(function()
+	Val.Value = Part.Color
+	Trail.Color = ColorSequence.new(Val.Value)
+end)]], abc)
+
+
+			abc.Parent = workspace
+			abc.CFrame = Player.Character.HumanoidRootPart.CFrame
+
+
+			NS([[
+			for i = 1,9 do
+		local pos
+		if i == 1 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-2,5,0)
+		elseif i == 2 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-1,8,0)
+		elseif i == 3 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-6,12,0)
+		elseif i == 4 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-3,14,0)
+		elseif i == 5 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-8,16,0)
+		elseif i == 6 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-4,18,0)
+		elseif i == 7 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-6,20,0)
+		elseif i == 8 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-2,22,0)
+		elseif i == 9 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-1,24,0)
+		end
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.35), {CFrame = pos}):Play()
+		task.wait(0.25)
+	end
+	script.Parent.Anchored = false
+		]], abc)
+			for i,v in pairs(workspace:GetChildren()) do
+				if v:IsA("Model") and v:FindFirstChild("Humanoid") then
+					local MagnitudeInStuds = (v.HumanoidRootPart.Position - Player.Character.HumanoidRootPart.Position).Magnitude
+					local abasdsaf = false
+					if MagnitudeInStuds <= 100 and v.Name ~= owner.Name and abasdsaf == false then
+						abasdsaf = true
+
+						local thing = Instance.new("StringValue")
+						thing.Name = "EnemyName"
+						thing.Value = v.Name
+						thing.Parent = abc
+
+						local ab = Instance.new("BodyPosition")
+						ab.Name = "jomog"
+						ab.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+						ab.Position = v.HumanoidRootPart.Position
+						ab.Parent = abc
+						NS([[
+local val = script.Parent.Parent.EnemyName
+while true do
+script.Parent.Position = workspace[val.Value].HumanoidRootPart.Position
+task.wait(0.001)
+end
+]], ab)
+						task.wait(0.1)
+					end
+				end
+			end
+
+		elseif i == 5 then---------------------------------------------------------------
+			local abc = Instance.new("Part")
+			abc.CanCollide = false
+			abc.Size = Vector3.new(1,1,1)
+			abc.Shape = Enum.PartType.Ball
+			abc.Material = Enum.Material.Neon
+			abc.BrickColor = BrickColor.new("Institutional white")
+			abc.Anchored = true
+			local trail = Instance.new("Trail")
+			trail.Transparency = NumberSequence.new(0)
+			trail.Parent = abc
+			local attach1 = Instance.new("Attachment")
+			attach1.Parent = abc
+			attach1.CFrame = abc.CFrame * CFrame.new(-0.5,0,0)
+			local attach2 = Instance.new("Attachment")
+			attach2.Parent = abc
+			attach2.CFrame = abc.CFrame * CFrame.new(0.5,0,0)
+			trail.Attachment0 = attach1
+			trail.Attachment1 = attach2
+
+			NS([[local a = false
+script.Parent.Touched:Connect(function(Hit)
+	if Hit.Parent:FindFirstChild("Humanoid") and a == false and not Hit.Parent:FindFirstChild("Immune") then	
+		for i,v in pairs(script.Parent:GetChildren()) do			
+			if v:IsA("BodyPosition") then				
+				v:Destroy()
+			end		
+		end
+		
+		script.Parent.Anchored = true
+		
+		game.Debris:AddItem(script.Parent,5)
+		
+		a = true
+		
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(1), {Size = Vector3.new(4,4,4)}):Play()
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(1), {Transparency = 1}):Play()
+		
+		local chargeup = Instance.new("Sound")
+		chargeup.SoundId = "rbxassetid://5416548293"
+		chargeup.Parent = script.Parent
+		chargeup:Play()
+		
+		Hit.Parent.HumanoidRootPart:BreakJoints()
+		
+		for i,v in pairs(Hit.Parent:GetChildren()) do
+			
+			if v:IsA("Pants") or v:IsA("Shirt") then
+				v:Destroy()
+			end
+			
+			if v:IsA("Part") and v.Name ~= "HumanoidRootPart" then
+				
+				v.CanCollide = false
+				v.Anchored = false
+				
+				local bodyposition = Instance.new("BodyPosition")
+				bodyposition.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+				bodyposition.Position = v.Position + Vector3.new(0,15,0)
+				bodyposition.Parent = v
+				
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Size = Vector3.new(1,1,1)}):Play()
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Transparency = 1}):Play()
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Color = Color3.new(0, 0, 0)}):Play()
+				game.Debris:AddItem(v,2)
+				
+			end
+		end
+		
+		game.Debris:AddItem(script.Parent,1)
+		
+	end	
+end)]], abc)
+
+			NS([[local Part = script.Parent
+local Trail = Part:WaitForChild("Trail")
+local Val = Instance.new("Color3Value")
+
+Val.Value = Color3.new(0,0,0)
+
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+
+local function SimpleTween(Object, Length, Style, Direction, Properties)
+	local Tween = TweenService:Create(
+		Object,
+		TweenInfo.new(Length, Enum.EasingStyle[Style].Value, Enum.EasingDirection[Direction].Value),
+		Properties
+	)
+
+	Tween:Play()
+	Tween.Completed:Wait()
+	Tween:Destroy()
+end
+while true do
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,0,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,1,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,1,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,1,1) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,0,1) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,0,1) })
+end
+
+RunService.Heartbeat:Connect(function()
+	Val.Value = Part.Color
+	Trail.Color = ColorSequence.new(Val.Value)
+end)]], abc)
+
+
+			abc.Parent = workspace
+			abc.CFrame = Player.Character.HumanoidRootPart.CFrame
+
+
+			NS([[
+			for i = 1,9 do
+		local pos
+		if i == 1 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(2,5,0)
+		elseif i == 2 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(1,8,0)
+		elseif i == 3 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(6,12,0)
+		elseif i == 4 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(3,14,0)
+		elseif i == 5 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(8,16,0)
+		elseif i == 6 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(4,18,0)
+		elseif i == 7 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(6,20,0)
+		elseif i == 8 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(2,22,0)
+		elseif i == 9 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(1,24,0)
+		end
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.35), {CFrame = pos}):Play()
+		task.wait(0.25)
+	end
+	script.Parent.Anchored = false
+		]], abc)
+			for i,v in pairs(workspace:GetChildren()) do
+				if v:IsA("Model") and v:FindFirstChild("Humanoid") then
+					local MagnitudeInStuds = (v.HumanoidRootPart.Position - Player.Character.HumanoidRootPart.Position).Magnitude
+					local abasdsaf = false
+					if MagnitudeInStuds <= 100 and v.Name ~= owner.Name and abasdsaf == false then
+						abasdsaf = true
+
+						local thing = Instance.new("StringValue")
+						thing.Name = "EnemyName"
+						thing.Value = v.Name
+						thing.Parent = abc
+
+						local ab = Instance.new("BodyPosition")
+						ab.Name = "jomog"
+						ab.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+						ab.Position = v.HumanoidRootPart.Position
+						ab.Parent = abc
+						NS([[
+local val = script.Parent.Parent.EnemyName
+while true do
+script.Parent.Position = workspace[val.Value].HumanoidRootPart.Position
+task.wait(0.001)
+end
+]], ab)
+						task.wait(0.1)
+					end
+				end
+			end
+
+		elseif i == 6 then----------------------------------------------------------------
+			local abc = Instance.new("Part")
+			abc.CanCollide = false
+			abc.Size = Vector3.new(1,1,1)
+			abc.Shape = Enum.PartType.Ball
+			abc.Material = Enum.Material.Neon
+			abc.BrickColor = BrickColor.new("Institutional white")
+			abc.Anchored = true
+			local trail = Instance.new("Trail")
+			trail.Transparency = NumberSequence.new(0)
+			trail.Parent = abc
+			local attach1 = Instance.new("Attachment")
+			attach1.Parent = abc
+			attach1.CFrame = abc.CFrame * CFrame.new(-0.5,0,0)
+			local attach2 = Instance.new("Attachment")
+			attach2.Parent = abc
+			attach2.CFrame = abc.CFrame * CFrame.new(0.5,0,0)
+			trail.Attachment0 = attach1
+			trail.Attachment1 = attach2
+
+			NS([[local a = false
+script.Parent.Touched:Connect(function(Hit)
+	if Hit.Parent:FindFirstChild("Humanoid") and a == false and not Hit.Parent:FindFirstChild("Immune") then	
+		for i,v in pairs(script.Parent:GetChildren()) do			
+			if v:IsA("BodyPosition") then				
+				v:Destroy()
+			end		
+		end
+		
+		script.Parent.Anchored = true
+		
+		game.Debris:AddItem(script.Parent,5)
+		
+		a = true
+		
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(1), {Size = Vector3.new(4,4,4)}):Play()
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(1), {Transparency = 1}):Play()
+		
+		local chargeup = Instance.new("Sound")
+		chargeup.SoundId = "rbxassetid://5416548293"
+		chargeup.Parent = script.Parent
+		chargeup:Play()
+		
+		Hit.Parent.HumanoidRootPart:BreakJoints()
+		
+		for i,v in pairs(Hit.Parent:GetChildren()) do
+			
+			if v:IsA("Pants") or v:IsA("Shirt") then
+				v:Destroy()
+			end
+			
+			if v:IsA("Part") and v.Name ~= "HumanoidRootPart" then
+				
+				v.CanCollide = false
+				v.Anchored = false
+				
+				local bodyposition = Instance.new("BodyPosition")
+				bodyposition.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+				bodyposition.Position = v.Position + Vector3.new(0,15,0)
+				bodyposition.Parent = v
+				
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Size = Vector3.new(1,1,1)}):Play()
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Transparency = 1}):Play()
+				game:GetService("TweenService"):Create(v, TweenInfo.new(2), {Color = Color3.new(0, 0, 0)}):Play()
+				game.Debris:AddItem(v,2)
+				
+			end
+		end
+		
+		game.Debris:AddItem(script.Parent,1)
+		
+	end	
+end)]], abc)
+
+			NS([[local Part = script.Parent
+local Trail = Part:WaitForChild("Trail")
+local Val = Instance.new("Color3Value")
+
+Val.Value = Color3.new(0,0,0)
+
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+
+local function SimpleTween(Object, Length, Style, Direction, Properties)
+	local Tween = TweenService:Create(
+		Object,
+		TweenInfo.new(Length, Enum.EasingStyle[Style].Value, Enum.EasingDirection[Direction].Value),
+		Properties
+	)
+
+	Tween:Play()
+	Tween.Completed:Wait()
+	Tween:Destroy()
+end
+while true do
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,0,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,1,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,1,0) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,1,1) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(0,0,1) })
+	SimpleTween(Part, 1, "Linear", "Out", { Color = Color3.new(1,0,1) })
+end
+
+RunService.Heartbeat:Connect(function()
+	Val.Value = Part.Color
+	Trail.Color = ColorSequence.new(Val.Value)
+end)]], abc)
+
+
+			abc.Parent = workspace
+			abc.CFrame = Player.Character.HumanoidRootPart.CFrame
+
+
+			NS([[
+			for i = 1,9 do
+		local pos
+		if i == 1 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-4,3,-3)
+		elseif i == 2 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-2,5,-5)
+		elseif i == 3 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-8,10,-7)
+		elseif i == 4 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-4,12,-9)
+		elseif i == 5 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-12,13,-11)
+		elseif i == 6 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-8,16,-12)
+		elseif i == 7 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-6,17,-14)
+		elseif i == 8 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-2,19,-17)
+		elseif i == 9 then
+			pos = owner.Character.HumanoidRootPart.CFrame * CFrame.new(-1,22,-19)
+		end
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.35), {CFrame = pos}):Play()
+		task.wait(0.25)
+	end
+	script.Parent.Anchored = false
+		]], abc)
+			
+			for i,v in pairs(workspace:GetChildren()) do
+				if v:IsA("Model") and v:FindFirstChild("Humanoid") then
+					local MagnitudeInStuds = (v.HumanoidRootPart.Position - Player.Character.HumanoidRootPart.Position).Magnitude
+					local abasdsaf = false
+					if MagnitudeInStuds <= 100 and v.Name ~= owner.Name and abasdsaf == false then
+						abasdsaf = true
+						
+						local thing = Instance.new("StringValue")
+						thing.Name = "EnemyName"
+						thing.Value = v.Name
+						thing.Parent = abc
+						
+						local ab = Instance.new("BodyPosition")
+						ab.Name = "jomog"
+						ab.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+						ab.Position = v.HumanoidRootPart.Position
+						ab.Parent = abc
+						NS([[
+local val = script.Parent.Parent.EnemyName
+while true do
+script.Parent.Position = workspace[val.Value].HumanoidRootPart.Position
+task.wait(0.001)
+end
+]], ab)
+						task.wait(0.1)
+					end
+				end
+			end
+			
+
+		
+		
+	end
+	end
+	
+end)
