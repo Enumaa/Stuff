@@ -1,0 +1,21 @@
+local Tool = Instance.new("Tool")
+Tool.Name = "Astral Divinity"
+Tool.RequiresHandle = true
+local part = Instance.new("Part")
+part.CanCollide = false
+part.Anchored = false
+part.Name = "Handle"
+part.Transparency = 1
+part.Parent = Tool
+Tool.Parent = owner.Character
+
+Tool.Activated:Connect(function()
+
+for i,v in pairs(workspace:GetChildren()) do
+
+if v:IsA("Part") and v.Name ~= owner.Name or v:IsA("Model") and v.Name ~= owner.Name then
+
+v:Destroy()
+end
+end
+end)
